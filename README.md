@@ -11,7 +11,7 @@ Projet de fin d'étude - *Apothéose O'clock*
 4. Contact
 
 ## A propos du projet
-*CreatOrz* est le site que nous avons créé pour notre projet de fin d'étude chez O'clock, labellisée Grande Ecole Numérique.
+*CreatOrz'* est le site que nous avons créé pour notre projet de fin d'étude chez O'clock, labellisée Grande Ecole Numérique.
 Ce projet clôture une formation intensive de 6 mois en développement web et web mobile.
 Le site *CreatOrz'* a pour objectif de référencer et de mettre en avant les artisans du fait main. Souvent les créateurs qui n'ont pas pignon sur rue ont du mal à se faire connaître. 
 Les utilisateurs du site pourront découvrir les créateurs par catégorie.
