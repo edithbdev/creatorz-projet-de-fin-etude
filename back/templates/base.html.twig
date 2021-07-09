@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Creatorz' - Admin
+			{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset('images/favicon.ico') }}">
+		<link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet"> {% block stylesheets %}{% endblock %}
+
+		</head>
+		<body>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<div class="container-fluid fond">
+					<a class="navbar-brand d-inline-block align-text-top" href="{{ path('admin_userAll_browse') }}"><img src="{{ asset('images/logo_tache_bicolor_def.png') }}" alt="logo">Creatorz' - Admin</a>
+
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					{% if app.user != null and app.user.roles != ['ROLE_USER']%}
+
+						{# {{ dump(app.user) }} #}
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item dropdown">
+									<a class="nav-link{{ 'user' in app.request.get('_route') ? ' active' }} dropdown-toggle" href="{{ path('admin_userAll_browse') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilisateurs{{ 'user' in app.request.get('_route') ? '<span class="visually-hidden">(page courante)</span>' }}
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li>
+											<a class="dropdown-item" href="{{ path('admin_userAdmin_browse') }}">Administration</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="{{ path('admin_user_browse') }}">Visiteurs/Créateurs</a>
+										</li>
+										<li><hr class="dropdown-divider"></li>
+										<li>
+											<a class="dropdown-item" href="{{ path('admin_userAll_browse') }}">Tous les utilisateurs</a>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link{{ 'category' in app.request.get('_route') ? ' active' }}" href="{{ path('admin_category_browse') }}">Catégories{{ 'category' in app.request.get('_route') ? '<span class="visually-hidden">(page courante)</span>' }}
+									</a>
+								</li>
+								<a class="nav-link btn btn-connexion" href="{{ path('app_logout') }}">Déconnexion</a>
+
+								{% else %}
+
+							{% endif %}
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</body>
+	</html>
+</nav>
+
+
+<div class="container-fluid">
+	{% block body %}
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<footer class="footer primary">
+		Copyright &copy; 2021
+		<a href="{{ relative_path('http://creatorz.surge.sh/') }}">
+			Site Creatorz'</a>.
+	</footer>
+{% endblock %}
+
+
+{% block javascripts %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% endblock %}</body></html>

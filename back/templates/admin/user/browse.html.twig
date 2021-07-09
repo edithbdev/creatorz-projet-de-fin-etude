@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de tous les utilisateurs
+{% endblock %}
+
+{% block body %}
+{% for flashSuccess in app.flashes('success') %}
+
+	<div class="alert alert-danger" role="alert">{{ flashSuccess }}</div>
+{% endfor %}
+<div>
+	<h1 class="identification">
+		Bonjour,
+		{{ app.user.pseudo }}!
+	</h1>
+</div>
+
+<h1>Liste de tous les utilisateurs</h1>
+{% if is_granted('ROLE_SUPERADMIN', users) %}
+	<a href="{{ path("admin_add_user") }}" class="btn add redirect">Ajouter un utilisateur</a>
+{% endif %}
+<table class="table mb-5">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Email</th>
+			{# <th>Pseudo</th> #}
+			<th>Roles</th>
+			<th>actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for user in users %}
+			<tr>
+				<td>{{ user.id }}</td>
+				<td>{{ user.email }}</td>
+				{# <td>{{ user.pseudo }}</td> #}
+				<td>{{ user.roles ? user.roles|json_encode : ''}}</td>
+				<td>
+					{% if is_granted('USER_EDIT', user) %}
+						<a class="redirect" href="{{ path('admin_user_read', {'id': user.id}) }}">Voir</a>
+					{% endif %}
+					{% if is_granted('USER_EDIT', user) %}
+						<a class="redirect" href="{{ path('admin_user_edit', {'id': user.id}) }}">Modifier</a>
+					{% endif %}
+					{% if is_granted('USER_DELETE', user) %}
+
+						<form class="d-inline" method="post" action="{{ path('admin_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Etes-vous sûre de vouloir supprimer cet utilisateur ?');">
+							<button class="alert alert-danger">Supprimer</button>
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+
+						</form>
+
+					{% endif %}
+				</td>
+			</tr>
+		{% else %}
+			<tr>
+				<td colspan="6">Aucun utilisateurs trouvés</td>
+			</tr>
+		</tbody>
+	</tbody>
+</table>{% endfor %}{% endblock %}

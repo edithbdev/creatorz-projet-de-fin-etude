@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de la categorie {{ category.categoryName }} {% endblock %}
+
+{% block body %}
+    <h1>Modification de la categorie {{ category.categoryName }}</h1>
+
+   {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn mb-5">{{ button_label|default('Mettre à jour') }}</button>
+     <button class="btn mb-5 redirect"><a href="{{ path('admin_category_browse') }}">Annuler</a></button>
+{{ form_end(form) }}
+{% endblock %}

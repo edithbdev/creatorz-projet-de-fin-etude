@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des catégories
+{% endblock %}
+
+{% block body %}
+	{% for flashSuccess in app.flashes('success') %}
+
+		<div class="alert alert-danger" role="alert">{{ flashSuccess }}</div>
+	{% endfor %}
+	<h1>Gestion des catégories</h1>
+	{% if is_granted('ROLE_SUPERADMIN', categories) %}
+		<a href="{{ path("admin_category_add") }}" class="btn add redirect">Ajouter une catégorie</a>
+	{% endif %}
+
+	<table class="table mb-5">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for category in categories %}
+				<tr>
+					<td>{{category.id}}</td>
+					<td>{{category.categoryName}}</td>
+					<td>
+						{% if is_granted('CATEGORY_EDIT', category) %}
+							<a class="redirect" href="{{ path('admin_category_read', {'id': category.id}) }}">Voir</a>
+						{% endif %}
+						{% if is_granted('CATEGORY_EDIT', category) %}
+							<a class="redirect" href="{{ path("admin_category_edit", {id: category.id}) }}" class="action">Modifier</a>
+						{% endif %}
+						{% if is_granted('CATEGORY_DELETE', category) %}
+
+							<form class="d-inline" method="post" action="{{ path('admin_category_delete', {'id': category.id}) }}" onsubmit="return confirm('Etes-vous sûre de vouloir supprimer cette catégorie ?');">
+								<button class="alert alert-danger">Supprimer</button>
+								<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+
+							</form>
+
+						{% endif %}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">Aucune catégories trouvées</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

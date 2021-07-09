@@ -1,0 +1,95 @@
+ * {
+     box-sizing: border-box;
+     margin-bottom: 0;
+     padding: 0;
+ }
+
+ body {
+     background-color: #DED7B1;
+ }
+
+ h1 {
+     font-family: 'Rajdhani', sans-serif;
+ }
+
+ .navbar-toggler {
+     background-color: #CC7351;
+ }
+
+ a.nav-link {
+     background-color: #CC7351;
+     padding: 0.5rem;
+     margin: 1rem;
+     width: 100%;
+     text-align: center;
+ }
+
+ button.btn {
+     background-color: #CC7351;
+     width: 20%;
+     text-align: center;
+     margin-bottom: 2rem;
+ }
+
+ a:hover {
+     color: #DED7B1;
+ }
+
+ .btn:hover {
+     color: #DED7B1;
+ }
+
+ a.redirect:hover {
+     color: #9DAB86;
+ }
+
+ a.navbar-brand {
+     font-family: 'Rajdhani', sans-serif;
+ }
+
+ div.fond {
+     background-color: #9DAB86;
+
+ }
+
+ .alert {
+     background-color: rgb(160, 31, 31);
+     color: #DED7B1;
+     /* margin: 0.5rem; */
+ }
+
+ .alert:hover {
+     background-color: #CC7351;
+     color: white;
+ }
+
+ h1.identification {
+     font-size: 2vw;
+     color: #CC7351;
+     /* margin-left: 2rem; */
+ }
+
+ a.nav-link.btn-connexion {
+     background-color: #E08F62;
+     border-radius: 1rem;
+     width: 50%;
+     height: 50%;
+ }
+
+ .add {
+     font-style: bold;
+     font-size: 1rem;
+     text-decoration: underline;
+ }
+
+ footer {
+     bottom: 0;
+     width: 100vw;
+     height: auto;
+     text-align: center;
+     right: 0;
+     left: 0;
+     /* overflow: auto; */
+     background-color: #E08F62;
+     position: fixed;
+ }

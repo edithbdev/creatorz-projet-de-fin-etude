@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de l'utilisateur {{ user.email }}
+{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'utilisateur : {{ user.email }}</h1>
+
+   {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn mb-5">{{ button_label|default('Mettre à jour') }}</button>
+    <button class="btn mb-5 redirect"><a href="{{ path('admin_userAll_browse') }}">Annuler</a></button>
+{{ form_end(form) }}
+
+{% endblock %}
+

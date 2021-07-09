@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégorie :
+	{{ category.categoryName }}
+{% endblock %}
+
+{% block body %}
+	<h1>Catégorie :
+		{{ category.categoryName }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ category.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ category.categoryName }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ category.description }}</td>
+			</tr>
+			<tr>
+				<th>Photo</th>
+				<td>{{ category.photo }}</td>
+			</tr>
+		</tbody>
+	</table>
+	{% if is_granted('CATEGORY_EDIT', category) %}
+		<button class="btn mb-5 redirect">
+			<a class="redirect" href="{{ path("admin_category_edit", {id: category.id}) }}" class="action">Modifier</a>
+		</button>
+		<button class="btn mb-5 redirect">
+			<a href="{{ path('admin_category_browse') }}">Retour</a>
+		</button>
+	{% endif %}
+	<br>
+	{% if is_granted('CATEGORY_DELETE', category) %}
+
+		<form class="d-inline" method="post" action="{{ path('admin_category_delete', {'id': category.id}) }}" onsubmit="return confirm('Etes-vous sûre de vouloir supprimer cette catégorie ?');">
+			<button class="alert alert-danger mt-2">Supprimer</button>
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+
+		</form>
+	{% endif %}
+
+{% endblock %}
