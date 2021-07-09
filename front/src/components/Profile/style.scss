@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+#update-button{
+  margin-top: vars.$gutter;
+  margin-right: vars.$gutter;
+  background-color: vars.$colorThree;
+
+  &:hover {
+    background-color: vars.$colorFour;
+  }
+}
+
+#delete-button{
+  background-color: rgba($color: #BB0B0B, $alpha: 0.8);
+  color:vars.$colorThree;
+  margin-left: vars.$gutter;
+  margin-top: vars.$gutter;
+
+  &:hover {
+    background-color: vars.$colorOne;
+  }
+}

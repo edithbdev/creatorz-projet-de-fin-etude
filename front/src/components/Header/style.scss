@@ -1,0 +1,141 @@
+@use 'src/styles/vars';
+@use 'sass:math';
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: vars.$gutter;
+  background: linear-gradient(90deg, vars.$colorFour, vars.$colorThree);
+
+  &-logo {
+    width: 130px;
+    animation-name: spin;
+    animation-duration: 1s;
+    
+    @keyframes spin { 
+      from { 
+          transform: rotate(0deg); 
+      } to { 
+          transform: rotate(360deg); 
+      }
+    }
+    @media (max-width: 350px) {
+      width: 90px;
+     }
+  }
+
+  &-title h1{
+    font-weight: 600;
+    font-size: vars.$gutter*3;
+    font-family: vars.$font-title;
+
+    @media (max-width: vars.$medium) {
+     font-size: vars.$gutter*1.5;
+    }
+  }
+  &-slogan{
+    font-style: italic;
+  }
+
+  &-button{
+    display: flex;
+    flex-direction: column;
+
+    & button {
+      padding: math.div(vars.$gutter, 1.5) math.div(vars.$gutter, 1);
+      background-color: vars.$colorOne;
+      border: thin solid vars.$colorOne;
+      border-radius: 5px;
+      font-family: vars.$font;
+      font-weight: bold;
+      color:vars.$colorThree;
+
+      &:first-child{
+        margin-bottom: vars.$gutter;
+      }
+
+      &:hover {
+        background-color: vars.$colorTwo;
+        border: thin solid vars.$colorTwo;
+        animation:2s ease-in;
+        color:white;
+      }
+
+      @media (max-width: vars.$medium) {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        color: vars.$colorTwo;
+        margin: 0;
+        padding: vars.$gutter;
+        border-radius: 0;
+        border: none;
+        border-bottom:thin solid vars.$colorThree;
+
+        &:first-child{
+          margin-bottom: 0;
+        }
+      }
+
+    }
+  }
+
+  &-title{
+    text-align: center;
+  }
+}
+
+#segment-sidebar{
+  width: 100%;
+  height: 100%;
+}
+
+.header .menu {
+  font-family: vars.$font;
+}
+
+.header .header-burger-button{
+  background-color: vars.$colorOne;
+  margin-bottom: vars.$gutter;
+  &:hover {
+    background-color: vars.$colorTwo;
+  }
+}
+
+.connected-infos{
+  margin-bottom: vars.$gutter;
+  .bienvenue{
+    font-size: 1rem;
+    font-style: italic;
+  }
+  .pseudo{
+    font-size: 1rem;
+    font-weight: bolder;
+    font-style: normal;
+  }
+}
+
+.connected-burger{
+  margin-left: vars.$gutter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  #test{
+    width: fit-content;
+    margin-left: vars.$gutter;
+  }
+
+  &-infos{
+    margin-bottom: math.div(vars.$gutter, 2);
+    text-align: center;
+    .bienvenue{
+      font-size: 1rem;
+      font-style: italic;
+    }
+    .pseudo{
+      font-weight: bolder;
+      font-style: normal;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use 'src/styles/vars';
+@use 'sass:math';
+
+.creators-title{
+  text-align: center;
+}
+
+.creators-list-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: vars.$medium) {
+  .creators-list-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: vars.$small) {
+  .creators-list-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.creators-list-grid > * {
+  width: calc(100% - #{math.div(vars.$gutter, 2)});
+}

@@ -1,0 +1,32 @@
+@use 'src/styles/vars';
+
+.home-intro{
+text-align: center;
+padding: vars.$gutter;
+}
+
+.creators-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.link-solo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-image: url(src/assets/Planche-arts.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.link-solo .card-link {
+  background-color: vars.$colorThree;
+  color: black;
+  &:hover {
+    background-color: vars.$colorTwo;
+  }
+}

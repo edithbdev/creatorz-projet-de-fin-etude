@@ -1,0 +1,106 @@
+@use 'src/styles/vars';
+@use 'sass:math';
+
+.creator{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  text-align: left;
+
+  &-info{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+
+    &-plus{
+      display: flex;
+      align-items: center;
+
+      @media (max-width: vars.$small) {
+        flex-direction: column;
+      }
+
+    }
+
+    &-name{
+      margin: 0 vars.$gutter * 3;
+
+      @media (max-width: vars.$small) {
+        margin: vars.$gutter 0 ;
+      }
+
+    }
+
+    &-category{
+      padding: math.div(vars.$gutter,2);
+      border: thin solid vars.$colorThree;
+      border-radius: 10px;
+      background-color: vars.$colorThree;
+      margin-right: auto;
+
+      @media (max-width: vars.$small) {
+        margin: 0 auto vars.$gutter auto ;
+      }
+
+    }
+    }
+}
+
+.creator-carousel {
+    width: 90%;
+    height: 40rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    margin: auto;
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+.carousel{
+  margin: vars.$gutter 0;
+}
+
+.creator-info-social .button{
+  margin-right: vars.$gutter;
+}
+
+/* .creator .creator-info-name .creator-info-brand .creator-info-desc .creator-info-email .creator-info-website {
+  overflow-wrap: break-word;
+} */
+
+.creator .creator-info-desc{
+  overflow-wrap: break-word;
+}
+
+.comments{
+  margin-top: vars.$gutter*3;
+}
+.comments .comments-content {
+  text-align: left;
+}
+.comments-content .comments-content-author-date{
+  display: flex;
+  padding-top: 2px;
+}
+
+.creator-info-list .creator-info-brand{
+  display: flex;
+  align-items: center;
+}
+
+#logoCreator {
+  margin: 0;
+}
+
+.comments #comment-button-send{
+  background-color: vars.$colorOne;
+  color: white;
+  &:hover{
+    background-color: vars.$colorTwo;
+  }
+}

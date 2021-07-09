@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.login-form {
+  
+  &-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: vars.$gutter;
+  }
+
+  &-button {
+    font-size: 1em;
+    color: #fff;
+    background-color: vars.$colorOne;
+    border-radius: .3em;
+    border: 0;
+    padding: .7em;
+    height: 2.5em;
+  }
+}

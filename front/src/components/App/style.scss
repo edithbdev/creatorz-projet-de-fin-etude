@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+@use 'sass:math';
+
+.app {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.button-go-back{
+  background-color: vars.$colorOne;
+  color: white;
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding: math.div(vars.$gutter, 2);
+  border-radius: 3px;
+  border: none;
+
+  &:hover {
+    background-color: vars.$colorTwo;
+    color: white;
+  }
+}

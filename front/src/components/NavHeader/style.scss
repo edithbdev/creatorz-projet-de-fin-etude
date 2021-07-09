@@ -1,0 +1,45 @@
+@use 'src/styles/vars';
+@use 'sass:math';
+
+.menu{
+
+  &-link{
+    display: inline-block;
+    background-color: vars.$colorFour;
+    border-radius: 5px;
+    color: black;
+    padding: math.div(vars.$gutter, 1.5) math.div(vars.$gutter, 1);
+    margin: math.div(vars.$gutter, 5);
+
+    &:hover{
+      background-color: vars.$colorThree;
+      color: black;
+      box-shadow: 0px 0px 5px 1px vars.$colorTwo;
+    }
+
+    @media (max-width: vars.$medium) {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      color: vars.$colorThree;
+      margin: 0;
+      padding: vars.$gutter;
+      border-radius: 0;
+      border-bottom:thin solid vars.$colorThree;
+
+      &:hover{
+        background-color: rgba(0, 0, 0, 0);
+        color: vars.$colorOne;
+      }
+    }
+
+    &--active{
+      background-color: vars.$colorThree;
+      box-shadow: 0px 0px 5px 1px vars.$colorTwo;
+
+      @media (max-width: vars.$medium) {
+        background-color:  rgba(0, 0, 0, 0);
+        color: vars.$colorOne;
+      }
+    }
+  }
+}

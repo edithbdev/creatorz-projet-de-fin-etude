@@ -1,0 +1,11 @@
+@use 'src/styles/vars';
+
+.legalNotice-title{
+  text-align: center;
+}
+
+.legalNotice-text{
+  padding: vars.$gutter;
+  text-align: center;
+}
+

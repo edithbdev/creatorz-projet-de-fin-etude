@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+.inscriptions{
+  text-align: center;
+
+  @media (max-width: vars.$small) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inscriptions-button{
+    margin-right: vars.$gutter;
+    background-color: vars.$colorThree;
+    &:hover {
+      background-color: vars.$colorOne;
+      color: black;
+    }
+
+    @media (max-width: vars.$small) {
+      margin-top: vars.$gutter;
+      margin-right: 0;
+    }
+  }
+}

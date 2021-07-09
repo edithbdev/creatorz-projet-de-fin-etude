@@ -1,0 +1,51 @@
+@use 'src/styles/vars';
+@use 'sass:math';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: vars.$gutter;
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: vars.$gutter;
+
+    @media (max-width: vars.$medium) {
+      flex-direction: column;
+    }
+    
+  }
+
+  &-social {
+    display: flex;
+    justify-content: space-between;
+    width: 10rem;
+  }
+  
+  &-nav {
+    @media (max-width: vars.$medium) {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      margin-top: vars.$gutter;
+    }
+  }
+
+  &-link {
+    padding: math.div(vars.$gutter, 2) vars.$gutter;
+    color: black;
+
+    &:hover {
+      color: vars.$colorOne;
+    }
+  }
+
+  &-copyright{
+    display: inline-block;
+    text-align: center;
+    padding: math.div(vars.$gutter, 2);
+    border-top: thin solid grey;
+  }
+}
